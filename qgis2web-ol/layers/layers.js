@@ -10,16 +10,26 @@ new ol.layer.Tile({
 ]
 });
 var format_Peta_Geologi_0 = new ol.format.GeoJSON();
-var features_Peta_Geologi_0 = format_Peta_Geologi_0.readFeatures(json_Peta_Geologi_0, 
+var features_Peta_Geologi_0 = format_Peta_Geologi_0.readFeatures(json_Peta_Geologi_0,
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
 var jsonSource_Peta_Geologi_0 = new ol.source.Vector({
     attributions: [new ol.Attribution({html: '<a href=""></a>'})],
 });
+
+function LegendHide() {
+      var x = document.getElementById("maplegend");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+
 jsonSource_Peta_Geologi_0.addFeatures(features_Peta_Geologi_0);var lyr_Peta_Geologi_0 = new ol.layer.Vector({
                 declutter: true,
-                source:jsonSource_Peta_Geologi_0, 
+                source:jsonSource_Peta_Geologi_0,
                 style: style_Peta_Geologi_0,
-    title: 'Peta_Geologi<br />\
+    title: '<b onclick="LegendHide()">Peta Geologi</b> <div id="maplegend"><br />\
     <img src="styles/legend/Peta_Geologi_0_0.png" /> Aluvial<br />\
     <img src="styles/legend/Peta_Geologi_0_1.png" /> Andesit<br />\
     <img src="styles/legend/Peta_Geologi_0_2.png" /> Batuan Gunungapi Tak Terpisahkan<br />\
@@ -43,28 +53,38 @@ jsonSource_Peta_Geologi_0.addFeatures(features_Peta_Geologi_0);var lyr_Peta_Geol
     <img src="styles/legend/Peta_Geologi_0_20.png" /> Koluvial<br />\
     <img src="styles/legend/Peta_Geologi_0_21.png" /> Kubah Lava dan Leleran<br />\
     <img src="styles/legend/Peta_Geologi_0_22.png" /> Nglanggran Formation<br />\
-    <img src="styles/legend/Peta_Geologi_0_23.png" /> <br />'
+    <img src="styles/legend/Peta_Geologi_0_23.png" /> </div><br />'
         });var format_Struktur_Geologi_1 = new ol.format.GeoJSON();
-var features_Struktur_Geologi_1 = format_Struktur_Geologi_1.readFeatures(json_Struktur_Geologi_1, 
+var features_Struktur_Geologi_1 = format_Struktur_Geologi_1.readFeatures(json_Struktur_Geologi_1,
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
 var jsonSource_Struktur_Geologi_1 = new ol.source.Vector({
     attributions: [new ol.Attribution({html: '<a href=""></a>'})],
 });
+
+function LegendHide2() {
+      var x = document.getElementById("maplegend2");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+  }
+
 jsonSource_Struktur_Geologi_1.addFeatures(features_Struktur_Geologi_1);var lyr_Struktur_Geologi_1 = new ol.layer.Vector({
                 declutter: true,
-                source:jsonSource_Struktur_Geologi_1, 
+                source:jsonSource_Struktur_Geologi_1,
                 style: style_Struktur_Geologi_1,
-    title: 'Struktur_Geologi<br />\
+    title: '<b onclick="LegendHide2()">Struktur Geologi</b> <br /><div id="maplegend2">\
     <img src="styles/legend/Struktur_Geologi_1_0.png" /> Antiklinal<br />\
     <img src="styles/legend/Struktur_Geologi_1_1.png" /> Sesar<br />\
     <img src="styles/legend/Struktur_Geologi_1_2.png" /> Sesar Geser<br />\
     <img src="styles/legend/Struktur_Geologi_1_3.png" /> Sinklinal<br />\
-    <img src="styles/legend/Struktur_Geologi_1_4.png" /> <br />'
+    <img src="styles/legend/Struktur_Geologi_1_4.png" /> </div> <br />'
         });var lyr_ASTER_2 = new ol.layer.Image({
                             opacity: 1,
                             title: "ASTER",
-                            
-                            
+
+
                             source: new ol.source.ImageStatic({
                                url: "./layers/ASTER_2.png",
     attributions: [new ol.Attribution({html: '<a href=""></a>'})],
