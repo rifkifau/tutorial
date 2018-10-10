@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+	<link rel="icon" href="https://spasialkan.com/wp-content/uploads/2016/12/spasialkan.png" type="image/x-icon"/>
+	<link rel="shortcut icon" href="https://spasialkan.com/wp-content/uploads/2016/12/spasialkan.png" type="image/x-icon"/>
+	<title>Percobaan Arcgis Server</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <!-- Load Leaflet from CDN-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.0.4/dist/esri-leaflet.js"></script>
+
+  <style>
+    html,
+    body,
+    #map {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
+</head>
+<body>
+<header>
+    <h1><marquee direction="right" behavior="alternate"><b>Peta LandSystem Kalimantan Tengah</b></marquee></h1>
+</header>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map', {
+          center: [-0.441419, 116.284356],
+          zoom: 5
+        });
+        var esrimap1 = L.esri.basemapLayer('Topographic').addTo(map);
+		var esrimap2 = L.esri.basemapLayer('Streets').addTo(map);
+		var esrimap3 = L.esri.basemapLayer('NationalGeographic').addTo(map);
+		var esrimap4 = L.esri.basemapLayer('Oceans').addTo(map);
+		var esrimap5 = L.esri.basemapLayer('Gray').addTo(map);
+		var esrimap6 = L.esri.basemapLayer('DarkGray').addTo(map);
+		var esrimap7 = L.esri.basemapLayer('Imagery').addTo(map);
+		var esrimap8 = L.esri.basemapLayer('ShadedRelief').addTo(map);
+	var lskal= L.esri.dynamicMapLayer({
+    url: 'https://10.3.4.80:6443/arcgis/rest/services/PrakTISenin/IBnuHa/MapServer',
+    opacity: 0.7
+  }).addTo(map);
+  
+    var dataku = L.esri.featureLayer({
+    url: 'https://10.3.4.80:6443/arcgis/rest/services/Rifki/pelatihan/FeatureServer/0'
+  }).addTo(map);
+  
+  
+L.control.layers({
+    'Topographic': esrimap1,
+	'Streets': esrimap2,
+	'National Geographic': esrimap3,
+	'Oceans': esrimap4,
+	'Gray': esrimap5,
+	'DarkGray': esrimap6,
+	'Imagery': esrimap7,
+	'Shaded Relief': esrimap8,
+}, {
+    'Data': lskal,
+	'Data2': dataku,
+},{collapsed:false}).addTo(map);
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- BIAR RESPONSIVE DI BANYAK PERANGKAT DIGITAL -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+      integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+      crossorigin=""></script>
+    <script src="data/gempa.js" charset="utf-8"></script>
+    <script src="data/plates.js" charset="utf-8"></script>
+
+    <!-- <link rel="stylesheet" href="leaflet.groupedlayercontrol.css">
+    <script src="leaflet.groupedlayercontrol.js" charset="utf-8"></script> -->
+    <link rel="shortcut icon" href="https://spasialkan.com/wp-content/uploads/2018/03/Logo-Spasialkan-2018-Peta-Digital-dan-Webgis-Yogyakarta-Indonesia.png" type="image/x-icon"/>
+      <style>
+        /* PASTIKAN MEMBERIKAN NILAI HEIGHT, krn jika tidak maka tidak akan terlihat di browser */
+        html, body, #petaku {
+          width:100%;
+          height: 100%;
+          /* Solusi selain menggunakan height 100% */
+          /* position: absolute;
+          top: 0;
+          bottom: 0; */
+          padding:0;
+          margin:0;
+        }
+      </style>
+  </head>
+  <body>
+
+    <div id="petaku"></div>
+
+    <script>
+      var peta = L.map('petaku').setView([-2.483872, 115.785789], 5);
+      var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
+                    maxZoom: 19,
+                });
+      var esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+                  maxZoom: 19,
+                });
+                osm.addTo(peta);
+
+      let datagempa = L.geoJSON(gempabumi, {
+              style: function (feature) {
+                  return {color: feature.properties.color}
+                },
+              onEachFeature: function (feature, layer) {
+                 layer.bindPopup('<h2>' + 'Data Gempa Bumi' + '</h2><p><b>Lokasi </b>: ' +feature.properties.title+ '</p><p><b>Magnitude </b>: ' +feature.properties.mag+ '</p>');
+               }
+
+          }).addTo(peta);
+
+
+      let batasplate = L.geoJSON(plate, {
+              style: function (feature) {
+                return {
+                  stroke: true,
+                  color: "red",
+                  weight: 5
+                  };
+                },
+              onEachFeature: function (feature, layer) {
+                 layer.bindPopup('<h2>' + 'Data Gempa Bumi' + '</h2><p><b>Tipe </b>: ' +feature.properties.TYPE+ '</p><p><b>FID </b>: ' +feature.properties.FID+ '</p>');
+               }
+
+          }).addTo(peta);
+
+      var layers = {
+          // "Base Layers": {
+            "OSM": osm,
+            "ESRI": esri,
+          // }
+        };
+      let datatitik = {
+        "Titik Gempa": datagempa,
+        "Plate Boundaries": batasplate
+      }
+// plugins leaflet groupedLayers tidak bisa untuk menggroup basemap, tapi untuk layer data.
+      // L.control.groupedLayers(layers).addTo(peta);
+      L.control.layers(layers, datatitik).addTo(peta);
+
+    </script>
+  </body>
+</html>

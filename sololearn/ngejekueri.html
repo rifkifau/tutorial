@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Atung NgeJeKueri</title>
+    <script src="jquery-3.3.1.js" charset="utf-8"></script>
+    <link rel="shortcut icon" href="logo.jpg">
+    <style>
+      .tambahan {
+        background-color: rgb(96, 237, 241);
+        width: 190px;
+        border: black ridge 5px;
+      }
+      #daftar {
+        width: 100px;
+        height: 75px;
+        padding: 10px;
+        margin: 5px;
+        border: 2.5px dashed aqua;
+        background-color: rgb(201, 18, 104)
+      }
+    </style>
+  </head>
+  <body>
+    <p onclick="kesatu()" id="pertama">Ikon ini namanya Atung</p>
+    <form action="">
+      <input id="masukan" type="text" name="" placeholder="isikan cuy" value="">
+      <input type="submit" text="Kirim">
+    </form>
+    <br>
+    <img id="kedua" src="atung.png" width="200px" alt="Atung"></img>
+    <div id="daftar">
+      <li>Tempe</li>
+      <li>Tahu</li>
+      <li>Teri</li>
+    </div>
+    <button id="btn1">Ketok</button>
+    <button id="btn2">Ilang</button>
+    <button id="btn3">HEHE</button>
+    <button id="btn4">ckkc</button>
+    <br>
+    <span id="terbawah">cuma patokan</span>
+
+    <script>
+
+      function kesatu(){
+        $('#pertama').html("Atung adalah Rusa Bawean");
+      };
+
+      var lebar = $('#daftar').width(120);
+      // alert(lebar);
+
+
+      $(document).ready(function(){
+        var datasiswa = ['Guntur', 'Fikri', 'Taufik'];
+        // console.log(datasiswa);
+        $('#kedua').hover(function(){
+          $('#kedua').addClass('tambahan');
+        },
+          function(){$('#kedua').removeClass('tambahan');
+        });
+
+        $('#masukan').hover(function(){
+          $(this).css('background','red');
+        });
+
+        $('form').click(function(){
+          let berkas = ($('#masukan').val());
+          $('#pertama').text(berkas);
+          event.preventDefault();
+
+        });
+
+
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Asian Games 2018</title>
+	<link rel="shortcut icon" href="logo.jpg">
+</head>
+<body>
+	<img id="gambar1" onmouseenter="untukimg()" src="kaka.png" width="150px" alt="Kaka">
+	<p class="teks" onclick="ngedom()">perjalanan</p>
+	<p class="teks" onclick="ngedom()">memakan</p>
+
+	<p id="nasi" onmouseover="beras()">Oyeah</p>
+
+	<script>
+		function makan(){
+			var a = 26;
+			var b = 9;
+			var c = true || true;
+			var d = (2 === 4/2) || false;
+			console.log(c);
+
+			console.log(d)
+
+			var nama = ["agus", "nana", "tegar"];
+			console.log(typeof nama[0]);
+			nama[3] = "ragil";
+			// alert(nama);
+			console.log(nama);
+
+			var biner = 0b11110001;
+			console.log(biner);
+
+			var plus = "45";
+			console.log(parseInt(plus)+55);
+			console.log(typeof parseInt(plus));
+			console.log(plus+55);
+
+
+
+		};
+		//console.log(hasil);
+		makan();
+		// console.log(nama[1])
+		function ngedom () {
+				"use strict"
+			var domnya = document.getElementsByClassName('teks');
+			domnya[0].style.backgroundColor="rgb(131, 34, 168)";
+			domnya[0].style.fontWeight="bold";
+			domnya[1].innerHTML="nilainya";
+		}
+
+		var gambar = document.getElementById('gambar1');
+		function untukimg(){
+			gambar.style.backgroundColor="aqua";
+		}
+
+		gambar.addEventListener('mouseleave',function (){
+			gambar.style.backgroundColor="red";
+			gambar.style.width="150px";
+		});
+
+		var tulisan = document.getElementById('nasi');
+		function beras(){
+			tulisan.innerHTML = "beras merah";
+		}
+
+		tulisan.addEventListener('mouseout', function(){
+			tulisan.innerHTML = "Oyeah"
+		});
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>MapBox</title>
+    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+  </head>
+  <style>
+    html, body, #petaku {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <body>
+    <div id="petaku"></div>
+    <script>
+      L.mapbox.accessToken= 'pk.eyJ1Ijoicmlma2lmYXUiLCJhIjoiY2pkY3B4a3poMzYzbjMzcjJremE2bWs1OCJ9.J9sISIYJq9fmTI76aM4gJw';
+      // pilihannya:
+      // mapbox.streets
+      // mapbox.satellite
+      // mapbox.outdoors
+      // mapbox.dark
+      // mapbox.light
+      var petadasar = L.mapbox.map('petaku', null, {
+        maxZoom: 18
+      }).setView([-2.483872, 115.785789], 5);
+      var listdasar = {
+        Satellite: L.mapbox.tileLayer('mapbox.satellite'),
+        Outdoors: L.mapbox.tileLayer('mapbox.outdoors'),
+        Dark: L.mapbox.tileLayer('mapbox.dark'),
+        Light: L.mapbox.tileLayer('mapbox.light'),
+        Streets: L.mapbox.tileLayer('mapbox.streets')
+      };
+
+      listdasar.Dark.addTo(petadasar);
+      L.control.layers(listdasar).addTo(petadasar);
+    </script>
+
+  </body>
+</html>
