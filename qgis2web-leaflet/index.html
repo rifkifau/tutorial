@@ -36,6 +36,10 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <title>Sample WebGIS Spasialkan.com</title>
 	    
+<!-- MAPTIKS LIBRARY --> 
+<script src="https://cdn.maptiks.com/maptiks-leaflet.min.js"></script> 
+<script>maptiks.trackcode='a1a8504d-55f7-4a8a-b0c8-7363cd990abc';</script> 
+	    
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122965748-1"></script>
 <script>
@@ -113,7 +117,11 @@
             }
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
+            zoomControl:true, 
+		maxZoom:28, 
+		minZoom:1,
+		// ENTER THE MAP'S NAME HERE (USER DEFINED) 
+        	maptiks_id: "qgis2web-diy", 
         }).fitBounds([[-8.42833854439,109.789646034],[-7.46110150956,111.295047344]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
@@ -128,7 +136,9 @@
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors,<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            maxZoom: 28
+            maxZoom: 28,
+		// ENTER THE LAYER'S NAME HERE (USER DEFINED) 
+		maptiks_id: "qgis2web-diy"
         });
         basemap0.addTo(map);
         function setBounds() {
