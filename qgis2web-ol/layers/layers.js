@@ -1,29 +1,24 @@
 var wms_layers = [];
 
-// var baseLayer = new ol.layer.Group({
-//     'title': '',
-//     layers: [
-// new ol.layer.Tile({
-//     'title': 'OSM',
-//     'type': 'base',
-//     source: new ol.source.OSM()
-// })
-// ]
-// });
-        
-var baseLayer = new ol.layer.Tile({
-    'title': 'OSM',
-    'type': 'base',
-    source: new ol.source.OSM()
-});
-var baseLayer2 = new ol.layer.Tile({
+var baseLayer = new ol.layer.Group({
+    'title': 'Base maps',
+    layers: [
+new ol.layer.Tile({
       'title': 'MapBox',
       'type': 'base',
       source: new ol.source.XYZ({
         url: 'https://api.mapbox.com/styles/v1/versitani/cjznhzxit03h51cofrb1lfw2f/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmVyc2l0YW5pIiwiYSI6ImNqeWUxM3BrODB5MDIzbXA4NzQzOW9idGMifQ.MUiosR2LCaSTV9q6ry4GWw',
         crossOrigin:"anonymous"
       })
-    });
+}),
+new ol.layer.Tile({
+    'title': 'OSM',
+    'type': 'base',
+    source: new ol.source.OSM()
+})
+]
+});
+   
 var format_Peta_Geologi_0 = new ol.format.GeoJSON();
 var features_Peta_Geologi_0 = format_Peta_Geologi_0.readFeatures(json_Peta_Geologi_0,
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
@@ -114,7 +109,7 @@ jsonSource_Struktur_Geologi_1.addFeatures(features_Struktur_Geologi_1);var lyr_S
                         });
 
 lyr_Peta_Geologi_0.setVisible(true);lyr_Struktur_Geologi_1.setVisible(true);lyr_ASTER_2.setVisible(true);
-var layersList = [baseLayer,baseLayer2,lyr_Peta_Geologi_0,lyr_Struktur_Geologi_1,lyr_ASTER_2];
+var layersList = [baseLayer,lyr_Peta_Geologi_0,lyr_Struktur_Geologi_1,lyr_ASTER_2];
 lyr_Peta_Geologi_0.set('fieldAliases', {'SYMBOLS': 'SYMBOLS', 'NAME_BI': 'NAME_BI', 'CLASS_LITH': 'CLASS_LITH', });
 lyr_Struktur_Geologi_1.set('fieldAliases', {'OBJECTID': 'OBJECTID', 'nama': 'nama', });
 lyr_Peta_Geologi_0.set('fieldImages', {'SYMBOLS': 'TextEdit', 'NAME_BI': 'TextEdit', 'CLASS_LITH': 'TextEdit', });
