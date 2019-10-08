@@ -6,7 +6,13 @@ new ol.layer.Tile({
     'title': 'OSM',
     'type': 'base',
     source: new ol.source.OSM()
-})
+}),
+new ol.layer.Tile({
+      source: new ol.source.XYZ({
+        url: 'https://api.mapbox.com/styles/v1/versitani/cjznhzxit03h51cofrb1lfw2f/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmVyc2l0YW5pIiwiYSI6ImNqeWUxM3BrODB5MDIzbXA4NzQzOW9idGMifQ.MUiosR2LCaSTV9q6ry4GWw',
+        crossOrigin:"anonymous"
+      })
+    })
 ]
 });
 var format_Peta_Geologi_0 = new ol.format.GeoJSON();
