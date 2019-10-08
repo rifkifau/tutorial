@@ -140,6 +140,16 @@
 		maptiks_id: "qgis2web-diy"
         });
         basemap0.addTo(map);
+		
+	var mapboxUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
+	var accessToken = 'pk.eyJ1IjoidmVyc2l0YW5pIiwiYSI6ImNqeWUxM3BrODB5MDIzbXA4NzQzOW9idGMifQ.MUiosR2LCaSTV9q6ry4GWw';
+
+// 	var grayscale = L.tileLayer(mapboxUrl, {id: 'mapbox.light', attribution: '', maxZoom: 20, accessToken: accessToken}),
+// 	streets = L.tileLayer(mapboxUrl, {id: 'mapbox.streets', attribution: '', maxZoom: 20, accessToken: accessToken});
+	
+	var basemap1 = L.tileLayer(mapboxUrl, {id: 'mapbox.light', attribution: '', maxZoom: 20, accessToken: accessToken});
+        basemap1.addTo(map);
+		
         function setBounds() {
         }
         function pop_Peta_Geologi_0(feature, layer) {
