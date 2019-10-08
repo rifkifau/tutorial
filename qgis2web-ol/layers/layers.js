@@ -1,4 +1,16 @@
 var wms_layers = [];
+
+// var baseLayer = new ol.layer.Group({
+//     'title': '',
+//     layers: [
+// new ol.layer.Tile({
+//     'title': 'OSM',
+//     'type': 'base',
+//     source: new ol.source.OSM()
+// })
+// ]
+// });
+        
 var baseLayer = new ol.layer.Tile({
     'title': 'OSM',
     'type': 'base',
