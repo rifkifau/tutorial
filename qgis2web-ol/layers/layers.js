@@ -84,6 +84,8 @@ function LegendHide2() {
           y.innerHTML = "[ Hide | ";
       } else {
           x.style.display = "none";
+          y.innerHTML = "[ Show | ";
+              
       }
   }
 
