@@ -141,13 +141,11 @@
         });
         basemap0.addTo(map);
 		
-	var mapboxUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
+// 	var mapboxUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
+	var mapboxUrl = 'https://api.mapbox.com/styles/v1/versitani/cjznhzxit03h51cofrb1lfw2f/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}';
 	var accessToken = 'pk.eyJ1IjoidmVyc2l0YW5pIiwiYSI6ImNqeWUxM3BrODB5MDIzbXA4NzQzOW9idGMifQ.MUiosR2LCaSTV9q6ry4GWw';
-
-// 	var grayscale = L.tileLayer(mapboxUrl, {id: 'mapbox.light', attribution: '', maxZoom: 20, accessToken: accessToken}),
-// 	streets = L.tileLayer(mapboxUrl, {id: 'mapbox.streets', attribution: '', maxZoom: 20, accessToken: accessToken});
-	
-	var basemap1 = L.tileLayer(mapboxUrl, {id: 'mapbox.light', attribution: '', maxZoom: 20, accessToken: accessToken});
+// 	var basemap1 = L.tileLayer(mapboxUrl, {id: 'mapbox.light', attribution: '', maxZoom: 20, accessToken: accessToken});
+	var basemap1 = L.tileLayer(mapboxUrl, {attribution: '', maxZoom: 20, accessToken: accessToken});
         basemap1.addTo(map);
 		
         function setBounds() {
