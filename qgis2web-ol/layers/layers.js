@@ -89,7 +89,7 @@ jsonSource_Struktur_Geologi_1.addFeatures(features_Struktur_Geologi_1);var lyr_S
                 declutter: true,
                 source:jsonSource_Struktur_Geologi_1,
                 style: style_Struktur_Geologi_1,
-    title: '<b>Struktur Geologi</b> <span onclick="LegendHide2()">[ Hide | </span><a href="https://www.w3schools.com">Download</a><span> ]</span><br /><div id="maplegend2">\
+    title: '<b>Struktur Geologi</b> <span onclick="LegendHide2()">[ Hide | </span><a href="#">Download</a><span> ]</span><br /><div id="maplegend2">\
     <img src="styles/legend/Struktur_Geologi_1_0.png" /> Antiklinal<br />\
     <img src="styles/legend/Struktur_Geologi_1_1.png" /> Sesar<br />\
     <img src="styles/legend/Struktur_Geologi_1_2.png" /> Sesar Geser<br />\
