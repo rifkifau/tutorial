@@ -1,5 +1,5 @@
-# tutorial
-Demo Hasil Tutorial
+# Demo Hasil Tutorial
+Berisikan beberapa hasil dari tutorial-tutorial di <a href="https://spasialkan.com" target="_blank">Spasialkan.COM</a>. Jadi kalau kepo bagaimana cara membuatnya, cek aja ke <a href="https://spasialkan.com" target="_blank">Spasialkan.COM</a>
 
 ## Akses Cepat!
 
